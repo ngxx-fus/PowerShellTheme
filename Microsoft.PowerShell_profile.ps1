@@ -1,3 +1,32 @@
+# CUSTOM THEME START ###############################################################################################################
+# SCRIPT NAME:   Minimalist Git-Aware PowerShell Theme
+# AUTHOR:        A FixedTerm
+# LAST UPDATED:  2025-01-16
+#
+# DESCRIPTION:
+#   This script overrides the default PowerShell prompt to provide a cleaner, informative interface.
+#   It displays:
+#     1. User Mode: Green for Normal User, Red for Administrator.
+#     2. Path: Current directory (shortens user home to '~').
+#     3. Git Status: Shows current branch. Blue for clean, Orange for dirty (uncommitted changes).
+#     4. Make long cmd more readable.
+#
+# WHY THIS SCRIPT:
+#   - Lightweight: Pure PowerShell, no heavy modules (like Oh-My-Posh) required.
+#   - Performance: Loads instantly without slowing down the terminal.
+#   - Visual Safety: Clearly indicates if you are running as Administrator to prevent mistakes.
+#
+# IS IT SAFE:
+#   Yes. It only redefines the 'prompt' function in the current memory session.
+#   It does not modify system files, registry, or install external binaries.
+#
+# IS IT FREE:    Yes (Open Source).
+# DEPENDENCIES:  Git for Windows (to display branch info). If Git is missing, errors are suppressed.
+#
+# INSTALLATION:  Copy and paste this block into your PowerShell Profile (`notepad $PROFILE`).
+# UNINSTALL:     Remove this code block from your $PROFILE and restart PowerShell.
+# ##################################################################################################################################
+
 # Enable the Progress Bar
 $ProgressPreference = 'Continue'
 
@@ -60,6 +89,7 @@ function prompt {
     return " "
 }
 
+
 # --- OPTIMIZED CONDA INIT (LAZY LOAD) ---
 # EDIT THIS PATH IF YOUR CONDA IS INSTALLED ELSEWHERE
 $CondaExe = "$env:USERPROFILE\AppData\Local\miniconda3\Scripts\conda.exe"
@@ -71,3 +101,5 @@ if (Test-Path $CondaExe) {
         conda @args
     }
 }
+
+# CUSTOM THEME END #################################################################################################################
