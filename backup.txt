@@ -1,0 +1,9 @@
+oh-my-posh init pwsh --config C:\NgxxFus\ngxxfus.them.oh-my-posh.json | Invoke-Expression
+
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "C:\Users\PGU7HC\AppData\Local\miniconda3\Scripts\conda.exe") {
+    (& "C:\Users\PGU7HC\AppData\Local\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+}
+#endregion
+
