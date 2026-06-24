@@ -33,6 +33,8 @@ if (!(Test-Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }
 notepad $PROFILE
 ```
 
+Typically, the location of PWSH profile file is `C:\Users\<your username>\Documents\PowerShell`
+
 2. Copy one of the scripts below (Icon or No-Icon) and paste it into the Notepad window.
 
 3. Save and restart your Terminal.
