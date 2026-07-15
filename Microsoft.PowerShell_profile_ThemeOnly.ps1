@@ -77,7 +77,7 @@ function prompt {
     #     }
     # }
 
-    # Write-Host "" 
+    Write-Host "" 
 
     # --- 4. RENDER PROMPT SYMBOL ---
     if ($isAdmin) {
