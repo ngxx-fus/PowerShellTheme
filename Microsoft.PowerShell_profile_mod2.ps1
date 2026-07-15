@@ -79,22 +79,35 @@ function prompt {
     # --- 2. RENDER PATH ---
     Write-Host "$(Hex '#0CA0D8')[D]  $path $Reset" -NoNewline
 
-#    # --- 3. RENDER GIT ---
-#    $gitBranch = git branch --show-current 2>$null
-#    
-#    # Display git info if currently in a repository
-#    if ($gitBranch) {
-#        $gitStatus = git status --porcelain 2>$null
-#        
-#        # Colorize branch name based on uncommitted changes
-#        if ($gitStatus) {
-#            # Dirty: Orange (#FFA500)
-#            Write-Host " $(Hex '#FFA500')[G] $gitBranch* $Reset" -NoNewline
-#        } else {
-#            # Clean: Light Blue (#57C7FF)
-#            Write-Host " $(Hex '#57C7FF')[G] $gitBranch $Reset" -NoNewline
-#        }
-#    }
+	# # --- 3. RENDER GIT ---
+ #    # $gitOut = git status -b --porcelain 2>$null       # tracked & un-tracked files
+	# $gitOut = git status -b --porcelain -uno 2>$null  # tracked files only
+	
+ #    # Check if we are inside a Git repository and got output
+ #    if ($gitOut) {
+ #        $lines = @($gitOut)
+ #        $firstLine = $lines[0]
+ #        $gitBranch = ""
+		
+ #        # Extract branch name from standard format
+ #        if ($firstLine -match '^## (?:No commits yet on )?([^. ]+)') {
+ #            $gitBranch = $Matches[1]
+ #        # Extract detached HEAD state
+ #        } elseif ($firstLine -match '^## HEAD \(no branch\)') {
+ #            $gitBranch = "DETACHED"
+ #        }
+		
+ #        # Proceed if a branch or state was successfully parsed
+ #        if ($gitBranch) {
+ #            # Check for dirty state by evaluating line count
+ #            if ($lines.Count -gt 1) {
+ #                Write-Host " $(Hex '#FFA500')[G] $gitBranch* $Reset" -NoNewline
+ #            # Fallback for clean state
+ #            } else {
+ #                Write-Host " $(Hex '#57C7FF')[G] $gitBranch $Reset" -NoNewline
+ #            }
+ #        }
+ #    }
 
     Write-Host "" 
 
