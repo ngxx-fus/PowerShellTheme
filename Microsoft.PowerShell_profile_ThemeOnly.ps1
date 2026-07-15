@@ -65,19 +65,19 @@ function prompt {
     Write-Host "$(Hex '#0CA0D8')[D]  $path $Reset" -NoNewline
 
     # --- 3. RENDER GIT ---
-    $gitBranch = git branch --show-current 2>$null
-    if ($gitBranch) {
-        $gitStatus = git status --porcelain 2>$null
-        if ($gitStatus) {
-            # Dirty: Orange (#FFA500)
-            Write-Host " $(Hex '#FFA500')[G] $gitBranch* $Reset" -NoNewline
-        } else {
-            # Clean: Light Blue (#57C7FF)
-            Write-Host " $(Hex '#57C7FF')[G] $gitBranch $Reset" -NoNewline
-        }
-    }
+    # $gitBranch = git branch --show-current 2>$null
+    # if ($gitBranch) {
+    #     $gitStatus = git status --porcelain 2>$null
+    #     if ($gitStatus) {
+    #         # Dirty: Orange (#FFA500)
+    #         Write-Host " $(Hex '#FFA500')[G] $gitBranch* $Reset" -NoNewline
+    #     } else {
+    #         # Clean: Light Blue (#57C7FF)
+    #         Write-Host " $(Hex '#57C7FF')[G] $gitBranch $Reset" -NoNewline
+    #     }
+    # }
 
-    Write-Host "" 
+    # Write-Host "" 
 
     # --- 4. RENDER PROMPT SYMBOL ---
     if ($isAdmin) {
